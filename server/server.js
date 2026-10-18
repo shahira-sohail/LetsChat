@@ -3,9 +3,13 @@ const http = require("http");
 const {Server} = require("socket.io");
 const app = express();
 const httpServer = http.createServer(app);
+const allowedOrigins = [
+    "http://localhost:5173",
+    process.env.CLIENT_URL,
+].filter(Boolean);
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:5173",
+        origin: allowedOrigins,
     },
 });
 
@@ -66,8 +70,9 @@ io.on("connection", (socket) => {
     });
 });
 
-httpServer.listen(5000, () => {
-    console.log("LetsChat backend running on port 5000");
+const PORT = process.env.PORT || 5000;
+httpServer.listen(PORT, "0.0.0.0", () => {
+    console.log(`LetsChat backend running on port ${PORT}`);
 });
 
 //cd server
