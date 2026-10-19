@@ -8,6 +8,9 @@ LetsChat is a full-stack real-time chat application built with React, Node.js, E
 
 The application is deployed on Render.
 
+## 📸 Preview
+![LetsChat Application Screenshots](Sprint12ss)
+
 ## ✨ Features
 
 - **Real-Time Messaging:** Send and receive messages instantly using Socket.io.
